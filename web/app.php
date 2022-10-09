@@ -4,6 +4,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 umask(0000);
 
+$loader = new ApcClassLoader('sf2', $loader);
+$loader->register(true);
+
 require __DIR__.'/../vendor/autoload.php';
 if (PHP_VERSION_ID < 70000) {
     include_once __DIR__.'/../var/bootstrap.php.cache';
